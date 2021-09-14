@@ -6,11 +6,12 @@ import innovation from '../images/innovation.svg';
 import quality from '../images/quality.svg';
 import happyclient from '../images/happyclient.svg';
 import support from '../images/support.svg';
-
+import Flip from 'react-reveal/Flip';
 
 function Advantages() {
-    return <Box bgcolor='#0D0E24' height='auto' pt={10} pb={5}>
+    return <Box id='advantages' bgcolor='#0D0E24' height='auto' pt={10} pb={5}>
     <Container maxWidth="lg">
+        <Flip left>
         <Box display='flex' flexDirection='column' flexBasis="30%" justifyContent='center' textAlign='center'>
             <Box  fontSize={{ xs: "30px", sm: "50px" , lg:'41px'}} color="#ff8b00" p={0}>
                 Our <span style={{color:'#fff',fontWeight: '400', fontStyle:'normal'}}>Advantages</span>
@@ -63,6 +64,7 @@ function Advantages() {
                 </Grid>
             </Grid>
         </Box>
+        </Flip>
     </Container>
     </Box>
 }

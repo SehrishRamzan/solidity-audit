@@ -14,7 +14,7 @@ let theme = createTheme({
     },
     text: {
       primary: "#fff",
-      secondary: "#FFB800",
+      secondary: "#fff",
     },
   },
   typography: {

@@ -1,34 +1,38 @@
 import React from 'react'
-import { Box, Container, Grid, Button , useMediaQuery} from '@material-ui/core';
+import { Box, Container, Grid, useMediaQuery} from '@material-ui/core';
 import Ellipse from '../images/Ellipse.svg';
 import soliditybg2 from '../images/soliditybg2.svg';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
+import Fade from 'react-reveal/Fade';
 
 function Services() {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
     const matches = useMediaQuery("(max-width:960px)");
 
-    return <Box mt={10}>
-        <Container maxWidth="lg">
-            <Box display='flex' flexDirection='ro' flexBasis="30%" justifyContent='left'>
-                <Box component='h1' fontWeight={700} style={{ textShadow: '6px 4px 0px #FFB800', color: '#171834', fontStyle: 'normal', fontWeight: 'bold', fontSize: '147px' }}>
-                    S <span style={{ marginRight: '5px', color: '#fff', fontSize: "37px", textShadow: 'none', fontWeight: '400', fontStyle: 'normal' }}>ervice</span>
+    return <Box  id='services' bgcolor='#0D0E24' pb={5}>
+        <Container maxWidth="lg" >
+            <Fade left>
+            <Box display='flex' flexDirection='row' flexBasis="30%" justifyContent='left' style={{width: '100%'}}>
+                <Box component='h1' mt={-13} fontWeight={700} style={{ textShadow: '6px 4px 0px #FFB800', color: '#171834', fontStyle: 'normal', fontWeight: 'bold', fontSize: '147px' }}>
+                    S<span style={{ marginRight: '5px', color: '#fff', fontSize: "37px", textShadow: 'none', fontWeight: '400', fontStyle: 'normal' }}>ervice</span>
                     <img width="16px" height="16px" style={{ marginLeft: '10px' }} src={Ellipse} />
                 </Box>
 
             </Box>
-            <Grid bgcolor='#0D0E24' container justifyContent="space-between" style={{ alignItems: "center" }} spacing={2}>
+            </Fade>
+            <Fade left>
+            <Grid bgcolor='#0D0E24' container justifyContent="space-between" style={{ alignItems: "center" }}>
+                
                 <Grid item xs={12} sm={6} md={5} style={{ position: "relative" }}>
                     <Box position="relative">
                         <img src={soliditybg2} style={{ mixBlendMode: 'screen', width: matches ? '90%': '540px', maxHeight: '430px' }} />
                     </Box>
                 </Grid>
-
+                
                 <Grid item xs={12} sm={6} md={5} style={{ position: "relative" }}>
                     <Box p={3} position="relative" style={{ fontStyle: 'normal', fontWeight: 'bold', fontSize: '35px' }}>
                         Security Audit
@@ -86,18 +90,11 @@ function Services() {
                             <ListItemText color='#8f8a8c' primary="Identify unnecessary resources." secondary={secondary ? 'Secondary text' : null} />
 
                         </ListItem>
-                        <Box align="center" mt={3}>
-                            <Button size='large' variant="contained" color='secondary' href="#contained-buttons">
-                                Buy Now
-                            </Button>
-                        </Box>
                     </List>
                 </Grid>
-
+                
             </Grid>
-
-
-
+            </Fade>
         </Container>
     </Box>
 }

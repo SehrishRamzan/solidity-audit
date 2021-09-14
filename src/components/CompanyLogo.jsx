@@ -1,46 +1,47 @@
 import React from 'react';
-import { Box, Grid, Container } from "@material-ui/core";
+import { Box, Grid, Container, useMediaQuery } from "@material-ui/core";
 import image1 from '../images/image1.svg';
 import image2 from '../images/image2.svg';
 import image3 from '../images/image3.svg';
 import image4 from '../images/image4.svg';
 import image from '../images/image.svg';
 import image5 from '../images/image5.svg';
+import Fade from 'react-reveal/Fade';
 
 
 
 function CompanyLogo() {
-    return <Box  bgcolor="#11122B">
+    const matches = useMediaQuery("(max-width:960px)");
+
+    return <Box bgcolor="#11122B" mt={-40}>
         <Container maxWidth='lg'>
-        <Box height='176px'>
-            {/* <marquee scrolldelay="0" direction="column"> */}
-                <Grid container style={{ alignItems: "center", justifyContent: "space-between",flexWrap:'wrap' }}>
-                    <Grid item xs={1} >
-                        <img src={image1} width="200px" height="154px"/>
-
-                    </Grid>
-                    <Grid item xs={1} >
-                        <img src={image2} width="200px" height="36px"  />
-                    </Grid>
-                    <Grid item xs={1} >
-                        <img src={image4} width="200px" height="178px"  />
-
-                    </Grid>
-                    <Grid item xs={1} >
-                        <img src={image5} width="150px" height="24px"/>
-
-                    </Grid>
-                    <Grid item xs={1} >
-                        <img src={image} width="100px" height="48px"/>
-
-                    </Grid>
-                    <Grid item xs={1} >
-                        <img src={image3} width="140px" height="109px" />
-
-                    </Grid>
+            <Fade top>
+            <Grid container justifyContent="space-between" alignItems='center' spacing={1} style={{ marginTop: '90px' }} >
+                <Grid item xs={4} sm={4} md={2} style={{ position: "relative" }} >
+                    <img src={image1} width={matches ? '103px':'200px'} height={matches?'69px':'154px'} />
                 </Grid>
-            {/* </marquee> */}
-        </Box></Container>
+                <Grid item xs={4} sm={4} md={2} style={{ position: "relative" }} >
+                    <img src={image2} width={matches? '64px':'200px'} height={matches? '15px':'36px'} />
+                </Grid>
+                <Grid item xs={4} sm={4} md={2} style={{ position: "relative" }} >
+                    <img src={image4} width={matches ? '106px':'200px'} height={matches ? '79px':"178px"} />
+
+                </Grid>
+                <Grid item xs={4} sm={4} md={2} style={{ position: "relative" }} >
+                    <img src={image5} width={matches ? '77px':"150px"} height={matches ? '9px':"24px"} />
+
+                </Grid>
+                <Grid item xs={4} sm={4} md={2} style={{ position: "relative" }} >
+                    <img src={image} width={matches ? '46px':"100px"} height={matches ? '18px':"48px"} />
+
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} style={{ position: "relative" }} >
+                    <img src={image3} width={matches ? '64px':"140px"} height={matches ? '43px':"109px"} />
+
+                </Grid>
+            </Grid>
+        </Fade>
+        </Container>
     </Box>
 }
 
