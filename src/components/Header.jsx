@@ -13,10 +13,11 @@ const useStyles = makeStyles({
     },
     fullList: {
         width: 'auto',
-
     },
+    paper: {
+        background: '#171834',
+    }
 });
-
 
 function Header() {
     const classes = useStyles();
@@ -41,7 +42,7 @@ function Header() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List  style={{color: '#171834', textAlign:'center'}}>
+            <List>
                 {['about', 'advantages', 'services', 'contact'].map((text, index) => (
                     <ListItem button key={text}>
                         <LinkS to={text}><ListItemText primary={text} /></LinkS>
@@ -62,19 +63,19 @@ function Header() {
                     </Box>
                     <Hidden mdDown>
                         <Box fontSize='16px'>
-                            <LinkS to='about'><LinkR to='about' style={{ textDecoration: 'none', color: '#fff' }} >About</LinkR></LinkS>
+                            <LinkS to='about' smooth={true} offset={50} duration={500}><LinkR to='about' style={{ textDecoration: 'none', color: '#fff' }} >About</LinkR></LinkS>
                         </Box>
 
                         <Box fontSize='16px'>
-                            <LinkS to='advantages'><LinkR to='advantages' style={{ textDecoration: 'none', color: '#fff' }}>Advantages</LinkR></LinkS>
+                            <LinkS to='advantages' smooth={true} offset={50} duration={500}><LinkR to='advantages' style={{ textDecoration: 'none', color: '#fff' }}>Advantages</LinkR></LinkS>
                         </Box>
                         <Box>
                             <Box fontSize='16px' display='flex' justifyContent='space-between' alignItems='center'>
-                                <LinkS to='services'><LinkR to='services' style={{ textDecoration: 'none', color: '#fff' }}>Services</LinkR></LinkS>
+                                <LinkS to='services' smooth={true} offset={50} duration={500}><LinkR to='services' style={{ textDecoration: 'none', color: '#fff' }}>Services</LinkR></LinkS>
                             </Box>
                         </Box>
                         <Box fontSize='16px'>
-                            <LinkS to='process'><LinkR to='process' style={{ textDecoration: 'none', color: '#fff' }}>Process</LinkR></LinkS>
+                            <LinkS to='process' smooth={true} offset={50} duration={500}><LinkR to='process' style={{ textDecoration: 'none', color: '#fff' }}>Process</LinkR></LinkS>
                         </Box>
 
                     </Hidden>
@@ -87,10 +88,12 @@ function Header() {
                     <Hidden mdUp>
                         <IconButton>
                         {['right'].map((anchor) => (<React.Fragment key={anchor}>
-                                <Button onClick={toggleDrawer(anchor, true)}><MenuIcon
+                                <Button onClick={toggleDrawer(anchor, true)}>
+                                    <MenuIcon
                                     style={{ fontSize: '38px', cursor: 'pointer', color: '#fff' }}>
-                                </MenuIcon></Button>
-                                <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                                    </MenuIcon>
+                                </Button>
+                                <Drawer anchor={anchor} classes={{ paper: classes.paper }} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                                     {list(anchor)}
                                 </Drawer>
                             </React.Fragment> ))}
